@@ -1,11 +1,11 @@
 ###############################################################################
-# Makefile for the project DisplayTest
+# Makefile for the project display
 ###############################################################################
 
 ## General Flags
-PROJECT = DisplayTest
+PROJECT = display
 MCU = atmega8
-TARGET = DisplayTest.elf
+TARGET = display.elf
 CC = avr-gcc
 
 CPP = avr-g++
@@ -25,7 +25,7 @@ ASMFLAGS += -x assembler-with-cpp -Wa,-gdwarf2
 
 ## Linker flags
 LDFLAGS = $(COMMON)
-LDFLAGS +=  -Wl,-Map=DisplayTest.map
+LDFLAGS +=  -Wl,-Map=display.map
 
 
 ## Intel Hex file production flags
@@ -37,16 +37,16 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Objects that must be built in order to link
-OBJECTS = DisplayTest.o lcd-routines.o taster.o 
+OBJECTS = display.o lcd-routines.o taster.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
 
 ## Build
-all: $(TARGET) DisplayTest.hex DisplayTest.eep DisplayTest.lss size
+all: $(TARGET) display.hex display.eep display.lss size
 
 ## Compile
-DisplayTest.o: DisplayTest.c
+display.o: display.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 lcd-routines.o: lcd-routines.c
@@ -75,7 +75,7 @@ size: ${TARGET}
 ## Clean target
 .PHONY: clean
 clean:
-	-rm -rf $(OBJECTS) DisplayTest.elf dep/* DisplayTest.hex DisplayTest.eep DisplayTest.lss DisplayTest.map
+	-rm -rf $(OBJECTS) display.elf dep/* display.hex display.eep display.lss display.map
 
 
 ## Other dependencies
