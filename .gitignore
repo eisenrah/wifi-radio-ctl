@@ -1,2 +1,26 @@
 
 .DS_Store
+
+NUL
+
+dep/display.o.d
+
+dep/lcd-routines.o.d
+
+dep/taster.o.d
+
+display.eep
+
+display.elf
+
+display.hex
+
+display.lss
+
+display.map
+
+display.o
+
+lcd-routines.o
+
+taster.o
