@@ -125,7 +125,7 @@ void uart_gets(char* Buffer, uint8_t MaxLen)
    we need get_taster() to be executed every 10ms
    so we call it every 144th time */
 
-SIGNAL (SIG_OVERFLOW0)
+ISR(TIMER0_OVF_vect)
 {
 	static unsigned char count_ovl0;
 	unsigned char ovl0 = count_ovl0+1;
